@@ -26,6 +26,11 @@ function Taskbar(props) {
                 About Us
               </Link>
             </form>
+            <form method="dialog">
+                <Link to='/location' className="btn btn-ghost rounded-btn">
+                  Locations
+                </Link>
+              </form>
             <div className="dropdown dropdown-end">
               <form method="dialog">
                 <button className="btn btn-ghost rounded-btn">Services</button>
