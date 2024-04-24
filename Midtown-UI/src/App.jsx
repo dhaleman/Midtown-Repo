@@ -7,6 +7,9 @@ import SchedulePage from './pages/SchedulePage'
 import AboutUs from './pages/AboutUs'
 import PricePage from './pages/PricePage'
 import LocationPage from './pages/LocationPage'
+import ChildPage from './pages/ChildPage'
+import PetPage from './pages/PetPage'
+import ElderlyPage from './pages/ElderlyPage'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
           <Route path="/about" element={<AboutUs/>}></Route>
           <Route path="/price" element={<PricePage/>}></Route>
           <Route path="/location" element={<LocationPage/>}></Route>
+          <Route path="/childcare" element={<ChildPage/>}></Route>
+          <Route path="/petcare" element={<PetPage/>}></Route>
+          <Route path="/elderly" element={<ElderlyPage/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
