@@ -45,13 +45,13 @@ function Taskbar(props) {
                 className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-25 mt-4"
               >
                 <li>
-                  <a>Child</a>
+                    <Link to="/childcare">Child</Link>
                 </li>
                 <li>
-                  <a>Pet</a>
+                  <Link to="/petcare">Pet</Link>
                 </li>
                 <li>
-                  <a>Elderly</a>
+                <Link to="/elderly">Elderly</Link>
                 </li>
               </ul>
             </div>
