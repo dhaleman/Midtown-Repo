@@ -12,8 +12,6 @@ function SignUpPage() {
         <ul className="steps font-xl">
           <li className="step step-primary">Sign Up</li>
           <li className="step">Child Info.</li>
-          <li className="step">Schedule</li>
-          <li className="step">Price</li>
         </ul>
         <ul>
           <label className="signup text-xl font-bold">Sign Up</label>

@@ -9,11 +9,9 @@ function SchedulePage() {
     <div>
       <Taskbar imagesrc={logo} />
       <div>
-        <ul className="steps font-xl">
-          <li className="step step-primary">Sign Up</li>
-          <li className="step step-primary">Child Info.</li>
+      <ul className="steps font-xl gap-4">
           <li className="step step-primary">Schedule</li>
-          <li className="step">Price</li>
+          <li className="step">Payment</li>
         </ul>
         <ul>
           <label className="signup text-xl font-bold">Schedule</label>

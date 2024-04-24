@@ -53,7 +53,7 @@ function LoginPage() {
           Don't have an account?
         </Link>
       </label>
-      <Link to='/schedule' type="submit" className="btn">
+      <Link to='/' type="submit" className="btn">
         Login
       </Link>
     </div>

@@ -31,6 +31,11 @@ function Taskbar(props) {
                   Locations
                 </Link>
               </form>
+            <form method="dialog">
+              <Link to="/schedule" className="btn btn-ghost rounded-btn join-item">
+                Schedule
+              </Link>
+            </form>
             <div className="dropdown dropdown-end">
               <form method="dialog">
                 <button className="btn btn-ghost rounded-btn">Services</button>

@@ -9,11 +9,9 @@ function PricePage() {
     <div>
       <Taskbar imagesrc={logo} />
       <div>
-        <ul className="steps font-xl">
-          <li className="step step-primary">Sign Up</li>
-          <li className="step step-primary">Child Info.</li>
+        <ul className="steps font-xl gap-4">
           <li className="step step-primary">Schedule</li>
-          <li className="step step-primary">Price</li>
+          <li className="step step-primary">Payment</li>
         </ul>
         <ul>
           <label className="signup text-xl font-bold">Payment</label>
@@ -62,30 +60,33 @@ function PricePage() {
             className="input input-bordered w-full max-w-xs"
           />
         </label>
-        <button
-          type="submit"
-          onClick={() => document.getElementById("my_modal_5").showModal()}
-        >
-          Submit
-        </button>
-        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-          <div className="modal-box">
-            <h3 className="font-bold text-lg">
-              Account created and payment made! Thank you.
-            </h3>
-            <p className="py-4">
-              Press ESC key or click the button below to close
-            </p>
-            <div className="modal-action">
-              <form method="dialog">
-                {/* if there is a button in form, it will close the modal */}
-                <Link to="/" className="btn">
-                  Close
-                </Link>
-              </form>
+        <div className="form-control mt-6">
+          <button
+            className="btn btn-primary"
+            onClick={() => document.getElementById("my_modal_5").showModal()}
+          >
+            Submit
+          </button>
+          <dialog
+            id="my_modal_5"
+            className="modal modal-bottom sm:modal-middle"
+          >
+            <div className="modal-box">
+              <h3 className="font-bold text-lg">
+                Payment made, thank you!
+              </h3>
+              <p className="py-4">
+                Press ESC key or click the button below to go back home
+              </p>
+              <div className="modal-action">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <Link to="/">Close</Link>
+                </form>
+              </div>
             </div>
-          </div>
-        </dialog>
+          </dialog>
+        </div>
       </div>
       <PageFooter imagescr={logo} />
     </div>
