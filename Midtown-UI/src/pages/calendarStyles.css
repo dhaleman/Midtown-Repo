@@ -1,8 +1,6 @@
-/* styles.css */
-
-/* Calendar styles */
+/* calendar styling */
 .react-calendar {
-    font-family: 'Comic Sans MS', cursive; /* Fun and playful font */
+    font-family: 'Arial', cursive; /* Fun and playful font */
     max-width: 300px;
     margin: 0 auto;
     border-radius: 20px;
@@ -10,7 +8,7 @@
   }
   
   .react-calendar__navigation {
-    background-color: #fbd1b7; /* Light orange background */
+    background-color: #e8e5e5; 
   }
   
   .react-calendar__navigation button {
@@ -18,7 +16,7 @@
   }
   
   .react-calendar__month-view__weekdays {
-    background-color: #fbd1b7; /* Light orange background */
+    background-color: #e8e5e5; 
   }
   
   .react-calendar__month-view__days {
@@ -34,11 +32,11 @@
   }
   
   .react-calendar__tile--active {
-    background-color: #fd8457; /* Light orange active day background */
+    background-color: #b2b7ec; /* Light blue active day background */
   }
   
   .react-calendar__tile--now {
-    background-color: #ffdc9d; /* Light yellow current day background */
+    background-color: #7194e0; /* Light blue current day background */
   }
   
   /* Event dot style */
@@ -46,7 +44,7 @@
     display: inline-block;
     width: 6px;
     height: 6px;
-    background-color: #f00; /* Change color as desired */
+    background-color: #0000ff; 
     border-radius: 50%;
   }
   

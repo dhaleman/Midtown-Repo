@@ -11,25 +11,16 @@ function HomePage() {
   const [selectedDate, setSelectedDate] = useState(null);
   const events = [
     {
-      title: 'Meeting with Client',
-      description: 'Discuss project scope and requirements',
-      date: new Date(2024, 3, 25), // year, month (0-based), day
-    },
-    {
-      title: 'Lunch with Team',
-      description: 'Team building activity',
+      title: 'Pizza Party!',
+      description: 'Pizza for lunch.',
       date: new Date(2024, 3, 26),
     },
     {
-      title: 'Conference Call',
-      description: 'Presentation on upcoming features',
-      date: new Date(2024, 3, 28),
+      title: 'Spanish class',
+      description: 'Come learn Spanish with our teachers!',
+      date: new Date(2024, 3, 30),
     },
-    {
-      title: 'Brainstorming Session',
-      description: 'Generate ideas for new project',
-      date: new Date(2024, 3, 28),
-    },
+
   ];
 
   // Function to handle click on date tile
@@ -81,11 +72,14 @@ function HomePage() {
         <div className="hero">
           <div className="hero-content text-left">
             <div className="max-w-md">
-              <h1 className="text-5xl font-bold">Hello there</h1>
+              <h1 className="text-5xl font-bold">Welcome</h1>
               <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-                excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-                et a id nisi.
+                Helping Hand Care Centers' vision is to help modern
+                working families with daytime and overnight
+                childcare, pet care,
+                and elderly care. We provide trustworthy and 
+                cost-effective on-campus and off-campus care centers.
+                Come see a virtual tour of our care centers.
               </p>
               <button className="btn btn-primary">Get Started</button>
             </div>
