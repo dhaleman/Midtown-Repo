@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import logo from "../HelpingHands3.png";
 
 function PageFooter(props) {
@@ -9,7 +9,7 @@ function PageFooter(props) {
         bottom: 0,
         left: 0,
         width: '100%',
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#cceeff', // lighter shade of blue
         padding: '8px',
         fontSize: '10px', // Adjusted font size
         zIndex: 999,
@@ -58,4 +58,4 @@ function PageFooter(props) {
   )
 }
 
-export default PageFooter
+export default PageFooter;

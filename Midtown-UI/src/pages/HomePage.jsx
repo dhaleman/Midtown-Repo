@@ -1,46 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Taskbar from "../components/Taskbar.jsx";
 import logo from "../HelpingHands3.png";
 import PageFooter from "../components/PageFooter.jsx";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import "./calendarStyles.css";
 
-// Define the EventPopup component to display details of the calendar event
-function EventPopup({ event, onClose }) {
-  return (
-    <div
-      className="popup"
-      style={{
-        position: "fixed",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        backgroundColor: "#fff",
-        padding: "20px",
-        borderRadius: "10px",
-        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-      }}
-    >
-      <h2>{event.title}</h2>
-      <p>{event.description}</p>
-      <button onClick={onClose}>Close</button>
-    </div>
-  );
-}
-
 function DailyParentalTips() {
-  // Array of daily tips
   const tips = [
     " • Encourage outdoor play for physical activity and fresh air •",
-    "• Set aside quality time for one-on-one bonding with your child •",
-    "• Limit screen time and encourage activities that promote creativity •",
-    "• Model good behavior and manners for your child to emulate •",
-    "• Encourage reading together as a family •",
-    "• Practice positive reinforcement rather than punishment •",
-    "• Teach your child problem-solving skills •",
-    "• Listen actively to your child and validate their feelings •",
-    "• Lead by example in showing kindness and empathy •",
+    " • Set aside quality time for one-on-one bonding with your child •",
+    " • Limit screen time and encourage activities that promote creativity •",
+    " • Model good behavior and manners for your child to emulate •",
+    " • Encourage reading together as a family •",
+    " • Practice positive reinforcement rather than punishment •",
+    " • Teach your child problem-solving skills •",
+    " • Listen actively to your child and validate their feelings •",
+    " • Lead by example in showing kindness and empathy •",
   ];
 
   return (
@@ -66,6 +40,31 @@ function DailyParentalTips() {
           ))}
         </ul>
       </marquee>
+    </div>
+  );
+}
+
+function DailyEvents({ events, date }) {
+  const colors = ['#FFD700', '#FFA500', '#FF6347', '#FF69B4', '#00BFFF']; // Different light shades resembling a rainbow
+
+  return (
+    <div className="bubble daily-events" style={{ height: "300px", width: "350px", overflowY: "auto" }}>
+      <h2 className="date-label">Your child's schedule for {date}</h2>
+      {events.length > 0 ? (
+        <div>
+          {events.map((event, index) => (
+            <div key={index} className="event-item" style={{ backgroundColor: colors[index % colors.length] }}>
+              <div className="event-time">{event.time}</div>
+              <div className="event-details">
+                <span className="event-title">{event.title}</span>
+                <span className="event-description">{event.description}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p>No events scheduled for today.</p>
+      )}
     </div>
   );
 }
@@ -103,7 +102,31 @@ function ParentDiscussionPanel() {
     },
   ]);
   const [newComment, setNewComment] = useState("");
-  const parentDiscussionPanelHeight = "280px"; // Adjusted height
+  const [vibrating, setVibrating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Randomly delete and re-add a bubble
+      const randomIndex = Math.floor(Math.random() * comments.length);
+      const updatedComments = [...comments];
+      const deletedComment = updatedComments.splice(randomIndex, 1)[0];
+
+      // Randomly add a bubble after deletion
+      const randomComment = {
+        text: deletedComment.text, // Use the same text as the deleted bubble
+        type: deletedComment.type,
+      };
+      const newComments = [...updatedComments];
+      newComments.push(randomComment); // Add the new bubble at the bottom
+      setComments(newComments);
+
+      // Trigger vibrating effect
+      setVibrating(true);
+      setTimeout(() => setVibrating(false), 500); // Turn off vibrating effect after 500ms
+    }, 10000); // Adjust timing as needed
+
+    return () => clearInterval(interval);
+  }, [comments]);
 
   const handleInputChange = (event) => {
     setNewComment(event.target.value);
@@ -114,24 +137,27 @@ function ParentDiscussionPanel() {
       const type = newComment.trim().endsWith("?") ? "question" : "answer";
       setComments([...comments, { text: newComment, type }]);
       setNewComment("");
+      setVibrating(true); // Trigger vibrating effect
+      setTimeout(() => setVibrating(false), 500); // Turn off vibrating effect after 500ms
     }
   };
 
   return (
     <div
-      className="parent-discussion-panel"
+      className={`parent-discussion-panel ${vibrating ? 'vibrating' : ''}`}
       style={{
-        width: "250px",
-        height: parentDiscussionPanelHeight,
+        width: "260px", // Adjusted width
+        height: "280px", // Adjusted height
         overflowY: "auto",
         padding: "10px",
-        backgroundColor: "#f0f0f0",
+        backgroundColor: "#B3FFB3", // Light green background color
         borderRadius: "10px",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
         marginTop: "20px",
+        marginLeft: "30px", // Added margin to move it to the right
       }}
     >
-      <h2 style={{ marginBottom: "10px" }}>Parent Discussion Panel</h2>
+      <h2 style={{ marginBottom: "10px", fontWeight: "bold" }}>Parent Discussion Panel</h2>
       <ul style={{ padding: 0 }}>
         {comments.map((comment, index) => (
           <li
@@ -142,7 +168,7 @@ function ParentDiscussionPanel() {
               borderRadius: "5px",
               boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
               backgroundColor:
-                comment.type === "question" ? "#ffc0cb" : "#90ee90",
+                comment.type === "question" ? "#F3E1F7" : "#FDD2E4",
             }}
           >
             {comment.text}
@@ -183,76 +209,40 @@ function ParentDiscussionPanel() {
 }
 
 function HomePage() {
-  // Sample events
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [popupEvent, setPopupEvent] = useState(null); // New state for managing the event pop-up
+  const currentDate = new Date().toLocaleDateString();
   const events = [
     {
-      title: "Pizza Party!",
-      description: "Pizza for lunch.",
-      date: new Date(2024, 3, 26),
+      time: "8:00 AM - 9:00 AM",
+      title: "Drop-off & Breakfast Time",
+      description: "Welcome your child and enjoy a nutritious breakfast.",
     },
     {
-      title: "Spanish class",
-      description: "Come learn Spanish with our teachers!",
-      date: new Date(2024, 3, 30),
+      time: "9:30 AM - 10:30 AM",
+      title: "Outdoor Playtime",
+      description: "Kids get to play outside and enjoy the fresh air.",
+    },
+    {
+      time: "10:45 AM - 11:30 AM",
+      title: "Storytelling Session",
+      description: "Teachers will read engaging stories to the children.",
+    },
+    {
+      time: "12:00 PM - 1:00 PM",
+      title: "Lunch Time",
+      description: "Time to refuel with a delicious and healthy lunch.",
+    },
+    {
+      time: "3:00 PM - 4:00 PM",
+      title: "Creative Arts & Crafts",
+      description: "Let your child explore their creativity through arts and crafts activities.",
     },
   ];
-
-  // Function to handle click on date tile
-  const handleDateClick = (date) => {
-    setSelectedDate(date);
-    const event = events.find(
-      (event) => event.date.toDateString() === date.toDateString()
-    );
-    setPopupEvent(event); // Set the event for the pop-up
-  };
-
-  // Function to get events for selected date
-  const getEventsForDate = () => {
-    if (!selectedDate) return [];
-
-    return events.filter(
-      (event) => event.date.toDateString() === selectedDate.toDateString()
-    );
-  };
-
-  // Custom CSS styles for the calendar
-  const customCalendarStyles = {
-    calendar: {
-      borderRadius: "10px",
-      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-      backgroundColor: "#fff",
-    },
-    tile: {
-      color: "#333",
-    },
-    activeStartDate: {
-      color: "#333",
-    },
-    monthAndYear: {
-      color: "#333",
-    },
-    weekDay: {
-      color: "#333",
-    },
-    day: {
-      color: "#333",
-    },
-    weekNumber: {
-      color: "#333",
-    },
-    tileContent: {
-      color: "#333",
-    },
-  };
 
   return (
     <div>
       <Taskbar imagesrc={logo} />
       <div className="flex justify-center">
-        {/* Welcome Section */}
-        <div className="hero">
+        <div className="welcome-section">
           <div className="hero-content text-left">
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Welcome</h1>
@@ -263,40 +253,19 @@ function HomePage() {
                 on-campus and off-campus care centers. Come see a virtual tour
                 of our care centers.
               </p>
-              <button className="btn btn-primary">Get Started</button>
+              <button to="/virtual" className="btn btn-primary">
+                VR Tour
+              </button>
             </div>
           </div>
         </div>
-        {/* Calendar and Parent Discussion Panel */}
-        <div className="flex flex-row">
-          <div className="calendar-container" style={{ marginRight: "20px" }}>
-            <h2>Calendar with Events</h2>
-            <Calendar
-              onClickDay={handleDateClick}
-              tileContent={({ date }) => {
-                const event = events.find(
-                  (event) => event.date.toDateString() === date.toDateString()
-                );
-                return event ? <span className="event-dot"></span> : null;
-              }}
-              tileClassName={({ date }) => {
-                const event = events.find(
-                  (event) => event.date.toDateString() === date.toDateString()
-                );
-                return event ? "has-event" : null;
-              }}
-              style={customCalendarStyles}
-            />
-          </div>
-          <ParentDiscussionPanel /> {/* Render parent discussion panel */}
+        <div className="bubble">
+          <DailyEvents events={events} date={currentDate} />
         </div>
+        <ParentDiscussionPanel />
       </div>
-      <DailyParentalTips /> {/* Render daily parental tips */}
+      <DailyParentalTips />
       <PageFooter imagesrc={logo} />
-      {/* Conditionally render the event pop-up */}
-      {popupEvent && (
-        <EventPopup event={popupEvent} onClose={() => setPopupEvent(null)} />
-      )}
     </div>
   );
 }
