@@ -21,8 +21,7 @@ function PetPage() {
                 Helping Hand Care Centers' vision is to help modern working
                 families with daytime and overnight childcare, pet care, and
                 elderly care. We provide trustworthy and cost-effective
-                on-campus and off-campus care centers. Come see a virtual tour
-                of our care centers.
+                on-campus and off-campus care centers.
               </p>
               <Link to="/schedule" className="btn btn-primary">
                 Schedule
