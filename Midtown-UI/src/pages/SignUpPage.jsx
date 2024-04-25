@@ -44,7 +44,11 @@ function SignUpPage() {
           <label className="signup text-xl font-bold">Sign Up</label>
         </ul>
         <label className="input input-bordered flex items-center gap-2">
-          Name
+          First Name
+          <input type="text" className="grow" placeholder="Team" required />
+        </label>
+        <label className="input input-bordered flex items-center gap-2">
+          Last Name
           <input
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
@@ -53,6 +57,14 @@ function SignUpPage() {
             placeholder="Midtown"
             required
           />
+        </label>
+        <label className="input input-bordered flex items-center gap-2">
+          Username
+          <input type="text" className="grow" placeholder="midtownslay" required />
+        </label>
+        <label className="input input-bordered flex items-center gap-2">
+          Create Password
+          <input type="password" className="grow" placeholder="Password" required />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           Email

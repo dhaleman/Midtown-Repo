@@ -25,9 +25,55 @@ function AboutUs() {
               schedule a tour of our facilities, meet our team, and learn more
               about how we can help you.
             </p>
-            <Link to="/" className="btn btn-primary">
-              Home
-            </Link>
+            <label className="form-control">
+              <div className="label">
+                <span className="label-text">Feedback</span>
+              </div>
+              <textarea
+                className="textarea textarea-bordered h-20"
+                placeholder="Comments, questions, concerns."
+              ></textarea>
+              <div className="label">
+                <span className="label-text-alt">
+                  Let us know how we can help you!
+                </span>
+              </div>
+            </label>
+            <div className="form-control mt-6">
+              <button
+                className="btn"
+                onClick={() =>
+                  document.getElementById("my_modal_5").showModal()
+                }
+              >
+                Submit
+              </button>
+              <dialog
+                id="my_modal_5"
+                className="modal modal-bottom sm:modal-middle"
+              >
+                <div className="modal-box">
+                  <h3 className="font-bold text-lg">
+                    We appreciate your feedback!
+                  </h3>
+                  <p className="py-4">
+                    Press ESC key or click the button below to go back home
+                  </p>
+                  <div className="modal-action">
+                    <form method="dialog">
+                      {/* if there is a button in form, it will close the modal */}
+                      <Link to="/">Close</Link>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+
+            {/* <ul>
+              <Link to="/" className="btn btn-primary">
+                Home
+              </Link>
+            </ul> */}
           </div>
         </div>
       </div>
