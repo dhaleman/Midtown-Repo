@@ -21,18 +21,26 @@ function Taskbar(props) {
       <div className="join">
         <div className="flex justify-end flex-1 px-2">
           <div className="flex items-stretch">
+          <form method="dialog">
+              <Link to="/feedback" className="btn btn-ghost rounded-btn join-item">
+                Feedback
+              </Link>
+            </form>
             <form method="dialog">
               <Link to="/about" className="btn btn-ghost rounded-btn join-item">
                 About Us
               </Link>
             </form>
             <form method="dialog">
-                <Link to='/location' className="btn btn-ghost rounded-btn">
-                  Locations
-                </Link>
-              </form>
+              <Link to="/location" className="btn btn-ghost rounded-btn">
+                Locations
+              </Link>
+            </form>
             <form method="dialog">
-              <Link to="/schedule" className="btn btn-ghost rounded-btn join-item">
+              <Link
+                to="/schedule"
+                className="btn btn-ghost rounded-btn join-item"
+              >
                 Schedule
               </Link>
             </form>
@@ -45,13 +53,13 @@ function Taskbar(props) {
                 className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-25 mt-4"
               >
                 <li>
-                    <Link to="/childcare">Child</Link>
+                  <Link to="/childcare">Child</Link>
                 </li>
                 <li>
                   <Link to="/petcare">Pet</Link>
                 </li>
                 <li>
-                <Link to="/elderly">Elderly</Link>
+                  <Link to="/elderly">Elderly</Link>
                 </li>
               </ul>
             </div>

@@ -11,6 +11,7 @@ import ChildPage from './pages/ChildPage'
 import PetPage from './pages/PetPage'
 import ElderlyPage from './pages/ElderlyPage'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FeedbackPage from './pages/FeedbackPage'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/childcare" element={<ChildPage/>}></Route>
           <Route path="/petcare" element={<PetPage/>}></Route>
           <Route path="/elderly" element={<ElderlyPage/>}></Route>
+          <Route path="/feedback" element={<FeedbackPage/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
