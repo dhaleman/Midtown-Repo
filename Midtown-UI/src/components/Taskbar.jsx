@@ -23,11 +23,6 @@ function Taskbar(props) {
           <div className="flex justify-end flex-1 px-2">
             <div className="flex items-stretch">
               <form method="dialog">
-                <Link to="/feedback" className="btn btn-ghost rounded-btn join-item text-white">
-                  Feedback
-                </Link>
-              </form>
-              <form method="dialog">
                 <Link to="/about" className="btn btn-ghost rounded-btn join-item text-white">
                   About Us
                 </Link>
@@ -63,6 +58,11 @@ function Taskbar(props) {
                   </li>
                 </ul>
               </div>
+              <form method="dialog">
+                <Link to="/feedback" className="btn btn-ghost rounded-btn join-item text-white">
+                  Feedback
+                </Link>
+              </form>
             </div>
           </div>
           <div className="flex items-center">

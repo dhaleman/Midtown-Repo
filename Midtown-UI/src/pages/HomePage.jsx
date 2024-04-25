@@ -49,7 +49,7 @@ function DailyEvents({ events, date }) {
 
   return (
     <div className="bubble daily-events" style={{ height: "300px", width: "350px", overflowY: "auto" }}>
-      <h2 className="date-label">Your child's schedule for {date}</h2>
+      <h2 className="date-label">Care Center Schedule for {date}</h2>
       {events.length > 0 ? (
         <div>
           {events.map((event, index) => (
