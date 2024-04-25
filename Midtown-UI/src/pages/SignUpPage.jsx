@@ -84,7 +84,7 @@ function SignUpPage() {
         <label className="input input-bordered flex items-center gap-2">
           Create Password
           <input
-            onChange={(e) => passWord(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             value={passWord}
             type="password"
             className="grow"
