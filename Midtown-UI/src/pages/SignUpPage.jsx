@@ -8,6 +8,9 @@ import PageFooter from "../components/PageFooter";
 
 function SignUpPage() {
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [passWord, setPassword] = useState("");
   const [Email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [Address, setAddress] = useState("");
@@ -15,6 +18,9 @@ function SignUpPage() {
   const handleSubmit = async () => {
     const dataToSend = {
       first_name: firstName,
+      last_name: lastName,
+      username: userName,
+      password: passWord,
       email: Email,
       phonenumber: phoneNumber,
       address: Address,
@@ -31,7 +37,6 @@ function SignUpPage() {
     }
   };
 
-
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -45,13 +50,20 @@ function SignUpPage() {
         </ul>
         <label className="input input-bordered flex items-center gap-2">
           First Name
-          <input type="text" className="grow" placeholder="Team" required />
+          <input
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+            type="text"
+            className="grow"
+            placeholder="Team"
+            required
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           Last Name
           <input
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
+            onChange={(e) => setLastName(e.target.value)}
+            value={lastName}
             type="text"
             className="grow"
             placeholder="Midtown"
@@ -60,11 +72,25 @@ function SignUpPage() {
         </label>
         <label className="input input-bordered flex items-center gap-2">
           Username
-          <input type="text" className="grow" placeholder="midtownslay" required />
+          <input
+            onChange={(e) => setUserName(e.target.value)}
+            value={userName}
+            type="text"
+            className="grow"
+            placeholder="midtownslay"
+            required
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           Create Password
-          <input type="password" className="grow" placeholder="Password" required />
+          <input
+            onChange={(e) => passWord(e.target.value)}
+            value={passWord}
+            type="password"
+            className="grow"
+            placeholder="Password"
+            required
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           Email
