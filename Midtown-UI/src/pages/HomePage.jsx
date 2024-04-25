@@ -81,7 +81,7 @@ function HomePage() {
                 cost-effective on-campus and off-campus care centers.
                 Come see a virtual tour of our care centers.
               </p>
-              <button className="btn btn-primary">Get Started</button>
+              {/* <button className="btn btn-primary">Schedule</button> */}
             </div>
           </div>
         </div>

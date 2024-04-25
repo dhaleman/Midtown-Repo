@@ -71,11 +71,11 @@ function ChildPage() {
       <Taskbar imagesrc={logo} />
       <div className="flex flex-row">
         <div className="hero">
-          <div className="hero-content text-center">
-          <img
+          <div className="hero-content text-left">
+          {/* <img
               src="https://www.211childcare.org/assets/marketing/Home-Hero-ffc2ef4c3edba13a068fac9becb576a0b683d4fa64aab0777e842302592bc252.jpg"
               className="max-w-sm rounded-lg shadow-2xl"
-            />
+            /> */}
             <div className="max-w-md">
               <h1 className="text-4xl font-bold">Our Child Care</h1>
               <p className="py-2">
