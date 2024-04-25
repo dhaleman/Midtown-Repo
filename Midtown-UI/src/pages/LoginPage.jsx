@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Taskbar from "../components/Taskbar";
 import logo from "../HelpingHands3.png";
@@ -14,15 +14,13 @@ function LoginPage(props) {
       username: userName,
       password: passWord,
     };
-
     try {
       const response = await axios.post(
         `${config.baseApiUrl}/login`,
         dataToSend
       );
-      const loggedin = true;
     } catch (error) {
-      const loggedin = false;
+      console.log("uh oh");
     }
   };
   return (
@@ -89,15 +87,8 @@ function LoginPage(props) {
             Don't have an account?
           </Link>
         </label>
-        <Link
-          to="/"
-          onClick={() => {
-            handleSubmit();
-          }}
-          type="submit"
-          className="btn"
-        >
-          Login
+        <Link to='/'>
+          <button onClick={() => {handleSubmit();}}>Login</button>
         </Link>
       </div>
       <PageFooter imagesrc={logo} />
