@@ -20,8 +20,9 @@ function ProfilePage() {
     // };
     const [users, setUsers] = useState([]);
     const fetchOrders = async () => {
-      const rsp = await axios.get(`${config.baseApiUrl}/user/3`);
+      const rsp = await axios.get(`${config.baseApiUrl}/user/5`);
       const usersreceived = await rsp.data;
+      console.log(usersreceived);
       setUsers(usersreceived);
     };
   
@@ -51,7 +52,7 @@ function ProfilePage() {
             <label className="input input-bordered flex items-center gap-2">
               Last Name
               <input
-                value=""
+                value={users.last_name}
                 type="text"
                 className="grow"
                 placeholder="Midtown"
@@ -61,7 +62,7 @@ function ProfilePage() {
             <label className="input input-bordered flex items-center gap-2">
               Username
               <input
-                value=""
+                value={users.username}
                 type="text"
                 className="grow"
                 placeholder="midtownslay"
@@ -71,7 +72,7 @@ function ProfilePage() {
             <label className="input input-bordered flex items-center gap-2">
               Email
               <input
-                value=""
+                value={users.email}
                 type="text"
                 className="grow"
                 placeholder="midtown@site.com"
@@ -81,7 +82,7 @@ function ProfilePage() {
             <label className="input input-bordered flex items-center gap-2">
               Phone
               <input
-                value=""
+                value={users.phonenumber}
                 type="text"
                 className="grow"
                 placeholder="888-123-4567"
@@ -91,7 +92,7 @@ function ProfilePage() {
             <label className="input input-bordered flex items-center gap-2">
               Address
               <input
-                value=""
+                value={users.address}
                 type="text"
                 className="grow"
                 placeholder="123 midtown ln"
