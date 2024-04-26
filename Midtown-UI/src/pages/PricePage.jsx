@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Taskbar from "../components/Taskbar";
 import logo from "../HelpingHands3.png";
 import config from "../config";
@@ -12,7 +12,8 @@ function PricePage() {
   const [expiration, setExpiration] = useState(null);
   const [cVc, setCvc] = useState(0);
   const [zIp, setZip] = useState(0);
-
+  const {user_id} = useParams();
+  const parsedUserId = parseInt(user_id);
   const handleSubmit = async () => {
     const dataToSend = {
       card_name: cardName,
@@ -20,11 +21,12 @@ function PricePage() {
       exp_number: expiration,
       csv: cVc,
       zip: zIp,
+      user_id: parsedUserId,
     };
     console.log(dataToSend);
     try {
       const response = await axios.post(
-        `${config.baseApiUrl}/payment`,
+        `${config.baseApiUrl}/${user_id}/payment/savepayment`,
         dataToSend
       );
       console.log(response);
