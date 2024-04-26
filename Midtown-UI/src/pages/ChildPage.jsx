@@ -66,9 +66,6 @@ function ChildPage() {
     },
   };
 
-  const {user_id} = useParams();
-  const parsedUserId = parseInt(user_id);
-
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -96,7 +93,7 @@ function ChildPage() {
                 We have teaching events that include learning new
                 languages, reading, and promoting problem-solving.
               </p>
-              <Link to={`/${parsedUserId}/schedule`} className="btn btn-primary">Schedule</Link>
+              <Link to={`/schedule`} className="btn btn-primary">Schedule</Link>
             </div>
           </div>
         </div>

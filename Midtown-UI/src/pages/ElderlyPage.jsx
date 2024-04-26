@@ -5,8 +5,6 @@ import PageFooter from "../components/PageFooter";
 import { Link, useParams } from "react-router-dom";
 
 function ElderlyPage() {
-  const {user_id} = useParams();
-  const parsedUserId = parseInt(user_id);
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -25,7 +23,7 @@ function ElderlyPage() {
                 elderly care. We provide trustworthy and cost-effective
                 on-campus and off-campus care centers.
               </p>
-              <Link to={`/${parsedUserId}/schedule`} className="btn btn-primary">
+              <Link to={`/schedule`} className="btn btn-primary">
                 Schedule
               </Link>
             </div>

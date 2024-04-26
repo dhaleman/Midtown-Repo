@@ -127,7 +127,7 @@ function SignUpPage() {
             required
           />
         </label>
-        <Link to={`/${parsedUserId}/child`}>
+        <Link to={`/child`}>
           <button onClick={handleSubmit}>Next</button>
         </Link>
       </div>

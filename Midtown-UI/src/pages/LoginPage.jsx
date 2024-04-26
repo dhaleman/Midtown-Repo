@@ -9,15 +9,6 @@ import PageFooter from "../components/PageFooter";
 function LoginPage(props) {
   const [userName, setUserName] = useState("");
   const [passWord, setPassword] = useState("");
-  const { user_id } = useParams();
-  const parsedUserId = parseInt(user_id);
-  const [users, setUsers] = useState([]);
-
-  const fetchUsers = async () => {
-    const rsp = await axios.get(`${config.baseApiUrl}/${userParsed}/user`);
-    const usersreceived = await rsp.data;
-    setUsers(usersreceived);
-  };
 
   // fetches the orders on the component render and looks for changes to
   // the orders to call another refresh
@@ -28,17 +19,13 @@ function LoginPage(props) {
     };
     try {
       const response = await axios.post(
-        `${config.baseApiUrl}/${parsedUserId}/login`,
+        `${config.baseApiUrl}/login`,
         dataToSend
       );
-      useEffect(() => {
-        fetchUsers();
-      }, [users]);
     } catch (error) {
       console.log("uh oh");
     }
   };
-  const userParsed = users.user_id;
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -96,14 +83,14 @@ function LoginPage(props) {
         </label>
         <label className="label">
           <Link
-            to={`/${parsedUserId}/signup`}
+            to={`/signup`}
             href="#"
             className="label-text-alt link link-hover"
           >
             Don't have an account?
           </Link>
         </label>
-        <Link to={`/${userParsed}`}>
+        <Link to={`/`}>
           <button
             onClick={() => {
               handleSubmit();

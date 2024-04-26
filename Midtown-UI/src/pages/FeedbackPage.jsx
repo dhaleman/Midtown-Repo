@@ -6,8 +6,6 @@ import { Link, useParams } from "react-router-dom";
 import PageFooter from "../components/PageFooter";
 
 function FeedbackPage() {
-  const {user_id} = useParams();
-  const parsedUserId = parseInt(user_id);
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -50,7 +48,7 @@ function FeedbackPage() {
                   <div className="modal-action">
                     <form method="dialog">
                       {/* if there is a button in form, it will close the modal */}
-                       <Link to={`/${parsedUserId}`}>Close</Link>
+                       <Link to={`/`}>Close</Link>
                     </form>
                   </div>
                 </div>

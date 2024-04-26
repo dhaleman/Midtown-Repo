@@ -20,18 +20,18 @@ function App() {
     <BrowserRouter>
       <div>
         <Routes>
-          <Route path="/:user_id" element={<HomePage/>}></Route>
-          <Route path="/:user_id/signup" element={<SignUpPage/>}></Route>
-          <Route path="/:user_id/login" element={<LoginPage/>}></Route>
-          <Route path="/:user_id/child" element={<ChildInfoPage/>}></Route>
-          <Route path="/:user_id/schedule" element={<SchedulePage/>}></Route>
-          <Route path="/:user_id/about" element={<AboutUs/>}></Route>
-          <Route path="/:user_id/price" element={<PricePage/>}></Route>
-          <Route path="/:user_id/location" element={<LocationPage/>}></Route>
-          <Route path="/:user_id/childcare" element={<ChildPage/>}></Route>
-          <Route path="/:user_id/petcare" element={<PetPage/>}></Route>
-          <Route path="/:user_id/elderly" element={<ElderlyPage/>}></Route>
-          <Route path="/:user_id/feedback" element={<FeedbackPage/>}></Route>
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="/signup" element={<SignUpPage/>}></Route>
+          <Route path="/login" element={<LoginPage/>}></Route>
+          <Route path="/child" element={<ChildInfoPage/>}></Route>
+          <Route path="/schedule" element={<SchedulePage/>}></Route>
+          <Route path="/about" element={<AboutUs/>}></Route>
+          <Route path="/price" element={<PricePage/>}></Route>
+          <Route path="/location" element={<LocationPage/>}></Route>
+          <Route path="/childcare" element={<ChildPage/>}></Route>
+          <Route path="/petcare" element={<PetPage/>}></Route>
+          <Route path="/elderly" element={<ElderlyPage/>}></Route>
+          <Route path="/feedback" element={<FeedbackPage/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>

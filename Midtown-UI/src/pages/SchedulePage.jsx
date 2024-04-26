@@ -78,7 +78,7 @@ function SchedulePage() {
             required
           />
         </div>
-        <Link to={`/${parsedUserId}/price`}>
+        <Link to={`/price`}>
           <button>Next</button>
         </Link>
       </div>

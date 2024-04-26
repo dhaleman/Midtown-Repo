@@ -21,7 +21,7 @@ function PricePage() {
       exp_number: expiration,
       csv: cVc,
       zip: zIp,
-      user_id: parsedUserId,
+      user_id: 10,
     };
     console.log(dataToSend);
     try {
@@ -126,7 +126,7 @@ function PricePage() {
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
-                  <Link to={`/${parsedUserId}`}>Close</Link>
+                  <Link to={`/`}>Close</Link>
                 </form>
               </div>
             </div>

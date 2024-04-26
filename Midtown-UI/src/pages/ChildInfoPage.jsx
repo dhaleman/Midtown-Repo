@@ -10,8 +10,6 @@ function ChildInfoPage() {
   const [childName, setChildName] = useState("");
   const [birthDate, setBirthDate] = useState(null);
   const [allergy, setAllergy] = useState("");
-  const {user_id} = useParams();
-  const parsedUserId = parseInt(user_id);
   const handleSubmit = async () => {
     const dataToSend = {
       childname: childName,
@@ -94,7 +92,7 @@ function ChildInfoPage() {
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
-                  <Link to={`/${parsedUserId}`}>Close</Link>
+                  <Link to={`/`}>Close</Link>
                 </form>
               </div>
             </div>

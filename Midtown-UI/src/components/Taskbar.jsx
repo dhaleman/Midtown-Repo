@@ -2,14 +2,12 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 function Taskbar(props) {
-  const { user_id } = useParams();
-  const parsedUserId = parseInt(user_id);
   return (
     <div className="fixed top-0 left-0 w-full bg-blue-700 p-4 z-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <div>
-            <Link to={`/${parsedUserId}`}>
+            <Link to={`/`}>
               <img
                 src={props.imagesrc}
                 alt="Helping Hands Care Centers Logo"
@@ -28,7 +26,7 @@ function Taskbar(props) {
             <div className="flex items-stretch">
               <form method="dialog">
                 <Link
-                  to={`/${parsedUserId}/about`}
+                  to={`/about`}
                   className="btn btn-ghost rounded-btn join-item text-white"
                 >
                   About Us
@@ -36,7 +34,7 @@ function Taskbar(props) {
               </form>
               <form method="dialog">
                 <Link
-                  to={`/${parsedUserId}/locations`}
+                  to={`/location`}
                   className="btn btn-ghost rounded-btn text-white"
                 >
                   Locations
@@ -44,7 +42,7 @@ function Taskbar(props) {
               </form>
               <form method="dialog">
                 <Link
-                  to={`/${parsedUserId}/schedule`}
+                  to={`/schedule`}
                   className="btn btn-ghost rounded-btn join-item text-white"
                 >
                   Schedule
@@ -61,7 +59,7 @@ function Taskbar(props) {
                 >
                   <li>
                     <Link
-                      to={`/${parsedUserId}/childcare`}
+                      to={`/childcare`}
                       className="text-blue-700"
                     >
                       Child
@@ -69,7 +67,7 @@ function Taskbar(props) {
                   </li>
                   <li>
                     <Link
-                      to={`/${parsedUserId}/petcare`}
+                      to={`/petcare`}
                       className="text-blue-700"
                     >
                       Pet
@@ -77,7 +75,7 @@ function Taskbar(props) {
                   </li>
                   <li>
                     <Link
-                      to={`/${parsedUserId}/elderly`}
+                      to={`/elderly`}
                       className="text-blue-700"
                     >
                       Elderly
@@ -87,7 +85,7 @@ function Taskbar(props) {
               </div>
               <form method="dialog">
                 <Link
-                  to={`/${parsedUserId}/feedback`}
+                  to={`/feedback`}
                   className="btn btn-ghost rounded-btn join-item text-white"
                 >
                   Feedback
@@ -105,7 +103,7 @@ function Taskbar(props) {
             </div>
             <form method="dialog">
               <Link
-                to={`/${parsedUserId}/login`}
+                to={`/login`}
                 className="btn btn-ghost rounded-btn text-white"
               >
                 Sign Up/Login
