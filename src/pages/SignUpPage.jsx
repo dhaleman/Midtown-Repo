@@ -79,7 +79,11 @@ function SignUpPage() {
             value={userName}
             type="text"
             className="grow"
+<<<<<<< HEAD
             placeholder="midtownslay"
+=======
+            placeholder="midtown123"
+>>>>>>> 72f8a68f4dfacf75d3c7f8e36e706439d4d694b9
             required
           />
         </label>

@@ -31,7 +31,14 @@ function LoginPage(props) {
       <Taskbar imagesrc={logo} />
       <div>
         <label className="signup text-xl font-bold">Login</label>
+<<<<<<< HEAD
+        <label className="input input-bordered flex items-center gap-2">
+=======
+<<<<<<< HEAD:Midtown-UI/src/pages/LoginPage.jsx
+        
+=======
         {/* <label className="input input-bordered flex items-center gap-2">
+>>>>>>> 72f8a68f4dfacf75d3c7f8e36e706439d4d694b9
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
@@ -42,7 +49,12 @@ function LoginPage(props) {
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
           <input type="text" className="grow" placeholder="Email" />
+<<<<<<< HEAD
+        </label>
+=======
         </label> */}
+>>>>>>> 4453ca415e9c38edb8bdb31f33b9fe4061ef85a6:src/pages/LoginPage.jsx
+>>>>>>> 72f8a68f4dfacf75d3c7f8e36e706439d4d694b9
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
