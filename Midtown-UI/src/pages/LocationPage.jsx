@@ -36,9 +36,11 @@ const locations = [
   }
 ];
 
-const mapStyle = {
+const mapContainerStyle = {
   width: "100%",
-  height: "600px", // Increased map height
+  height: "400px", // Reduced map height for better visibility
+  borderRadius: "10px",
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)"
 };
 
 function LocationPage() {
@@ -51,9 +53,9 @@ function LocationPage() {
   return (
     <div style={{ fontFamily: "Roboto, sans-serif", backgroundColor: "#f3f3f3", padding: "20px" }}>
       <Taskbar imagesrc={logo} />
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+      <h2 style={{ fontSize: "24px", marginBottom: "20px", color: "#333", textAlign: "center" }}>Locations</h2>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div style={{ width: "30%", marginRight: "20px", backgroundColor: "#fff", padding: "20px", borderRadius: "10px", boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}>
-          <h2 style={{ fontSize: "24px", marginBottom: "20px", color: "#333", textAlign: "center" }}>Locations</h2>
           {locations.map((location, index) => (
             <button 
               key={index} 
@@ -80,17 +82,14 @@ function LocationPage() {
           ))}
         </div>
         <div style={{ width: "70%", marginTop: "20px" }}>
-          <iframe
-            title="Google Maps"
-            style={mapStyle}
-            frameBorder="0"
-            scrolling="no"
-            marginHeight="0"
-            marginWidth="0"
-            src={`https://maps.google.com/maps?q=${selectedLocation.latitude},${selectedLocation.longitude}&z=14&output=embed`}
-          >
-            <a href={`https://www.google.com/maps?q=${selectedLocation.latitude},${selectedLocation.longitude}&z=14`} target="_blank" rel="noopener noreferrer">View Larger Map</a>
-          </iframe>
+          <div style={mapContainerStyle}>
+            <iframe
+              title="Google Maps"
+              style={{ width: "100%", height: "100%", border: "0" }}
+              src={`https://maps.google.com/maps?q=${selectedLocation.latitude},${selectedLocation.longitude}&z=14&output=embed`}
+              allowFullScreen
+            />
+          </div>
         </div>
       </div>
       <PageFooter />

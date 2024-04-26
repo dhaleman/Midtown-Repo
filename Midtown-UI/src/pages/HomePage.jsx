@@ -5,6 +5,7 @@ import PageFooter from "../components/PageFooter.jsx";
 import "./calendarStyles.css";
 import backgroundPhoto from "../familyPhoto.png";
 
+
 function DailyParentalTips() {
   const tips = [
     " • Encourage outdoor play for physical activity and fresh air •",
@@ -19,7 +20,7 @@ function DailyParentalTips() {
   ];
 
   return (
-    <div className="daily-tips" style={{ marginTop: "25px", marginBottom: "10px" }}> {/* Added marginBottom */}
+    <div className="daily-tips" style={{ marginTop: "20px" }}>
       <marquee
         behavior="scroll"
         direction="left"
@@ -273,7 +274,6 @@ function HomePage() {
         </div>
         <ParentDiscussionPanel />
       </div>
-      <></>
       <DailyParentalTips />
       <PageFooter imagesrc={logo} />
     </div>
@@ -281,5 +281,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-
