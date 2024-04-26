@@ -96,7 +96,7 @@ function Taskbar(props) {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-25"
               >
                 <li>
-                  <a className="justify-between text-white">Profile</a>
+                  <Link to="/profile" className="text-blue-700">Profile</Link>
                 </li>
                 <li>
                   <a className="text-white">Settings</a>

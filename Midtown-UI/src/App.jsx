@@ -12,6 +12,7 @@ import PetPage from './pages/PetPage'
 import ElderlyPage from './pages/ElderlyPage'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FeedbackPage from './pages/FeedbackPage'
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/petcare" element={<PetPage/>}></Route>
           <Route path="/elderly" element={<ElderlyPage/>}></Route>
           <Route path="/feedback" element={<FeedbackPage/>}></Route>
+          <Route path="/profile" element={<ProfilePage/>}></Route>
         </Routes>
       </div>
     </BrowserRouter>
