@@ -44,3 +44,55 @@
 .read-the-docs {
   color: #888;
 }
+
+.outlined-text {
+  color: white; /* Text color */
+  -webkit-text-stroke-width: 1px; /* Width of the stroke */
+  -webkit-text-stroke-color: black; /* Color of the stroke */
+}
+
+.white-text {
+  color: white;
+}
+
+.event-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.event-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.event-title {
+  font-weight: bold;
+}
+
+.event-description {
+  margin-left: 10px;
+  color: #666;
+}
+
+.date-label {
+  font-weight: bold;
+  font-family: "Arial", sans-serif; /* Change to your desired font */
+  font-size: 18px; /* Adjust the font size as needed */
+  margin-bottom: 10px; /* Add margin for spacing */
+}
+
+@keyframes vibrate {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(2px); }
+  50% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(-2px); }
+}
+
+.vibrating {
+  animation: vibrate 0.7s infinite; /* Adjusted animation duration to make it slower */
+}
+

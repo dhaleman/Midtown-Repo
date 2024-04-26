@@ -104,7 +104,7 @@ function PricePage() {
             className="input input-bordered w-full max-w-xs"
           />
         </label>
-        <div className="form-control mt-6">
+        <div className="form-control">
           <button
             className="btn btn-primary"
             onClick={() => {
