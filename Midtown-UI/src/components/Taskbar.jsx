@@ -1,13 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Taskbar(props) {
+  const { user_id } = useParams();
+  const parsedUserId = parseInt(user_id);
   return (
     <div className="fixed top-0 left-0 w-full bg-blue-700 p-4 z-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center">
           <div>
-            <Link to="/">
+            <Link to={`/${parsedUserId}`}>
               <img
                 src={props.imagesrc}
                 alt="Helping Hands Care Centers Logo"
@@ -16,50 +18,78 @@ function Taskbar(props) {
             </Link>
           </div>
           <div className="text-left ml-5">
-            <p className="font-bold text-2xl text-white outlined-text">Helping Hands Care Center</p>
+            <p className="font-bold text-2xl text-white outlined-text">
+              Helping Hands Care Center
+            </p>
           </div>
         </div>
         <div className="join">
           <div className="flex justify-end flex-1 px-2">
             <div className="flex items-stretch">
               <form method="dialog">
-                <Link to="/about" className="btn btn-ghost rounded-btn join-item text-white">
+                <Link
+                  to={`/${parsedUserId}/about`}
+                  className="btn btn-ghost rounded-btn join-item text-white"
+                >
                   About Us
                 </Link>
               </form>
               <form method="dialog">
-                <Link to="/location" className="btn btn-ghost rounded-btn text-white">
+                <Link
+                  to={`/${parsedUserId}/locations`}
+                  className="btn btn-ghost rounded-btn text-white"
+                >
                   Locations
                 </Link>
               </form>
               <form method="dialog">
                 <Link
-                  to="/schedule"
+                  to={`/${parsedUserId}/schedule`}
                   className="btn btn-ghost rounded-btn join-item text-white"
                 >
                   Schedule
                 </Link>
               </form>
               <div className="dropdown dropdown-end">
-                <button className="btn btn-ghost rounded-btn text-white">Services</button>
+                <button className="btn btn-ghost rounded-btn text-white">
+                  Services
+                </button>
                 <ul
                   tabIndex={0}
                   className="menu dropdown-content z-[1] p-2 shadow bg-blue-100 rounded-box w-25 mt-4"
                   style={{ visibility: "visible" }}
                 >
                   <li>
-                    <Link to="/childcare" className="text-blue-700">Child</Link>
+                    <Link
+                      to={`/${parsedUserId}/childcare`}
+                      className="text-blue-700"
+                    >
+                      Child
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/petcare" className="text-blue-700">Pet</Link>
+                    <Link
+                      to={`/${parsedUserId}/petcare`}
+                      className="text-blue-700"
+                    >
+                      Pet
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/elderly" className="text-blue-700">Elderly</Link>
+                    <Link
+                      to={`/${parsedUserId}/elderly`}
+                      className="text-blue-700"
+                    >
+                      Elderly
+                    </Link>
                   </li>
                 </ul>
               </div>
               <form method="dialog">
-                <Link to="/feedback" className="btn btn-ghost rounded-btn join-item text-white">
+                <Link
+                  to={`/${parsedUserId}/feedback`}
+                  className="btn btn-ghost rounded-btn join-item text-white"
+                >
                   Feedback
                 </Link>
               </form>
@@ -74,7 +104,10 @@ function Taskbar(props) {
               />
             </div>
             <form method="dialog">
-              <Link to="/login" className="btn btn-ghost rounded-btn text-white">
+              <Link
+                to={`/${parsedUserId}/login`}
+                className="btn btn-ghost rounded-btn text-white"
+              >
                 Sign Up/Login
               </Link>
             </form>

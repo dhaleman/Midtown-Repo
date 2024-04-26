@@ -126,7 +126,7 @@ function PricePage() {
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
-                  <Link to="/">Close</Link>
+                  <Link to={`/${parsedUserId}`}>Close</Link>
                 </form>
               </div>
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 // import HomePage from "./HomePage";
 import Taskbar from "../components/Taskbar.jsx";
 import logo from "../HelpingHands3.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PageFooter from "../components/PageFooter";
 
 function AboutUs() {

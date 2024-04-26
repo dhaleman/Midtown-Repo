@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Taskbar from "../components/Taskbar";
 import logo from "../HelpingHands3.png";
 import PageFooter from "../components/PageFooter";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ElderlyPage() {
+  const {user_id} = useParams();
+  const parsedUserId = parseInt(user_id);
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -23,7 +25,7 @@ function ElderlyPage() {
                 elderly care. We provide trustworthy and cost-effective
                 on-campus and off-campus care centers.
               </p>
-              <Link to="/schedule" className="btn btn-primary">
+              <Link to={`/${parsedUserId}/schedule`} className="btn btn-primary">
                 Schedule
               </Link>
             </div>

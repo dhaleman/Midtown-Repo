@@ -2,10 +2,12 @@ import React from "react";
 // import HomePage from "./HomePage";
 import Taskbar from "../components/Taskbar.jsx";
 import logo from "../HelpingHands3.png";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PageFooter from "../components/PageFooter";
 
 function FeedbackPage() {
+  const {user_id} = useParams();
+  const parsedUserId = parseInt(user_id);
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -48,7 +50,7 @@ function FeedbackPage() {
                   <div className="modal-action">
                     <form method="dialog">
                       {/* if there is a button in form, it will close the modal */}
-                       <Link to="/">Close</Link>
+                       <Link to={`/${parsedUserId}`}>Close</Link>
                     </form>
                   </div>
                 </div>

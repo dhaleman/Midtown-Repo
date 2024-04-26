@@ -5,7 +5,7 @@ import PageFooter from "../components/PageFooter.jsx";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './calendarStyles.css';
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function ChildPage() {
   // Sample events
@@ -66,6 +66,9 @@ function ChildPage() {
     },
   };
 
+  const {user_id} = useParams();
+  const parsedUserId = parseInt(user_id);
+
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -93,7 +96,7 @@ function ChildPage() {
                 We have teaching events that include learning new
                 languages, reading, and promoting problem-solving.
               </p>
-              <Link to="/schedule" className="btn btn-primary">Schedule</Link>
+              <Link to={`/${parsedUserId}/schedule`} className="btn btn-primary">Schedule</Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Taskbar from "../components/Taskbar";
 import logo from "../HelpingHands3.png";
 import config from "../config";
@@ -10,6 +10,8 @@ function SchedulePage() {
   const [appDate, setAppDate] = useState(null);
   const [dropOff, setDropOff] = useState(null);
   const [pickUp, setPickUp] = useState(null);
+  const {user_id} = useParams();
+  const parsedUserId = parseInt(user_id);
   const handleSubmit = async () => {
     const dataToSend = {
       app_date: appDate,
@@ -76,7 +78,7 @@ function SchedulePage() {
             required
           />
         </div>
-        <Link to="/price">
+        <Link to={`/${parsedUserId}/price`}>
           <button>Next</button>
         </Link>
       </div>

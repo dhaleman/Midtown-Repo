@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import Taskbar from "../components/Taskbar";
 import logo from "../HelpingHands3.png";
 import axios from "axios";
@@ -9,6 +9,18 @@ import PageFooter from "../components/PageFooter";
 function LoginPage(props) {
   const [userName, setUserName] = useState("");
   const [passWord, setPassword] = useState("");
+  const { user_id } = useParams();
+  const parsedUserId = parseInt(user_id);
+  const [users, setUsers] = useState([]);
+
+  const fetchUsers = async () => {
+    const rsp = await axios.get(`${config.baseApiUrl}/${userParsed}/user`);
+    const usersreceived = await rsp.data;
+    setUsers(usersreceived);
+  };
+
+  // fetches the orders on the component render and looks for changes to
+  // the orders to call another refresh
   const handleSubmit = async () => {
     const dataToSend = {
       username: userName,
@@ -16,13 +28,17 @@ function LoginPage(props) {
     };
     try {
       const response = await axios.post(
-        `${config.baseApiUrl}/login`,
+        `${config.baseApiUrl}/${parsedUserId}/login`,
         dataToSend
       );
+      useEffect(() => {
+        fetchUsers();
+      }, [users]);
     } catch (error) {
       console.log("uh oh");
     }
   };
+  const userParsed = users.user_id;
   return (
     <div>
       <Taskbar imagesrc={logo} />
@@ -80,15 +96,21 @@ function LoginPage(props) {
         </label>
         <label className="label">
           <Link
-            to="/signup"
+            to={`/${parsedUserId}/signup`}
             href="#"
             className="label-text-alt link link-hover"
           >
             Don't have an account?
           </Link>
         </label>
-        <Link to='/'>
-          <button onClick={() => {handleSubmit();}}>Login</button>
+        <Link to={`/${userParsed}`}>
+          <button
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            Login
+          </button>
         </Link>
       </div>
       <PageFooter imagesrc={logo} />

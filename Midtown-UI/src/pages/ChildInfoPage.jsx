@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Taskbar from "../components/Taskbar";
 import logo from "../HelpingHands3.png";
 import config from "../config";
@@ -10,6 +10,8 @@ function ChildInfoPage() {
   const [childName, setChildName] = useState("");
   const [birthDate, setBirthDate] = useState(null);
   const [allergy, setAllergy] = useState("");
+  const {user_id} = useParams();
+  const parsedUserId = parseInt(user_id);
   const handleSubmit = async () => {
     const dataToSend = {
       childname: childName,
@@ -92,7 +94,7 @@ function ChildInfoPage() {
               <div className="modal-action">
                 <form method="dialog">
                   {/* if there is a button in form, it will close the modal */}
-                  <Link to="/">Close</Link>
+                  <Link to={`/${parsedUserId}`}>Close</Link>
                 </form>
               </div>
             </div>
