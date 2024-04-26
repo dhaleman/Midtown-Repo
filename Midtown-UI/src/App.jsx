@@ -26,7 +26,7 @@ function App() {
           <Route path="/child" element={<ChildInfoPage/>}></Route>
           <Route path="/schedule" element={<SchedulePage/>}></Route>
           <Route path="/about" element={<AboutUs/>}></Route>
-          <Route path="/price" element={<PricePage/>}></Route>
+          <Route path="/:user_id/price" element={<PricePage/>}></Route>
           <Route path="/location" element={<LocationPage/>}></Route>
           <Route path="/childcare" element={<ChildPage/>}></Route>
           <Route path="/petcare" element={<PetPage/>}></Route>
