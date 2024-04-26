@@ -3,6 +3,7 @@ import Taskbar from "../components/Taskbar.jsx";
 import logo from "../HelpingHands3.png";
 import PageFooter from "../components/PageFooter.jsx";
 import "./calendarStyles.css";
+import backgroundPhoto from "../familyPhoto.png";
 
 function DailyParentalTips() {
   const tips = [
@@ -18,7 +19,7 @@ function DailyParentalTips() {
   ];
 
   return (
-    <div className="daily-tips" style={{ marginTop: "20px" }}>
+    <div className="daily-tips" style={{ marginTop: "25px", marginBottom: "10px" }}> {/* Added marginBottom */}
       <marquee
         behavior="scroll"
         direction="left"
@@ -242,8 +243,16 @@ function HomePage() {
     <div>
       <Taskbar imagesrc={logo} />
       <div className="flex justify-center">
-        <div className="welcome-section">
-          <div className="hero-content text-left">
+        {/* Background Photo with Opacity */}
+        <div className="homepage-background" style={{ 
+          backgroundImage: `url(${backgroundPhoto})`, 
+          backgroundSize: "485px 305px",
+         backgroundPosition: "center",
+          opacity: 1.0,
+  
+        }}>
+          {/* Content Container */}
+          <div className="hero-content text-left" style={{ backgroundColor: "rgba(255, 255, 255, 0.9)", padding: "20px", borderRadius: "10px" }}>
             <div className="max-w-md">
               <h1 className="text-5xl font-bold">Welcome</h1>
               <p className="py-6">
@@ -264,6 +273,7 @@ function HomePage() {
         </div>
         <ParentDiscussionPanel />
       </div>
+      <></>
       <DailyParentalTips />
       <PageFooter imagesrc={logo} />
     </div>
@@ -271,3 +281,5 @@ function HomePage() {
 }
 
 export default HomePage;
+
+

@@ -10,10 +10,10 @@ function PageFooter(props) {
         left: 0,
         width: '100%',
         backgroundColor: '#cceeff', // lighter shade of blue
-        padding: '8px',
-        fontSize: '10px', // Adjusted font size
+        padding: '5px 10px', // Adjusted padding
+        fontSize: '9px', // Adjusted font size
         zIndex: 999,
-        height: '95px',
+        height: '45px', // Adjusted height
       }}>
         <div style={{
           display: 'flex',
@@ -27,30 +27,27 @@ function PageFooter(props) {
               src={logo}
               alt="Helping Hands Care Centers Logo"
               style={{
-                height: '15px',
-                maxWidth: '15px', // Adjusted maximum width
+                height: '13px', // Adjusted height
+                maxWidth: '13px', // Adjusted maximum width
                 marginRight: '0px', // Reduced margin
+                marginBottom: '2px', // Moved image up slightly
               }}
             />
-            <p style={{ margin: 0 }}> {/* Remove default margin */}
-              <span style={{ fontWeight: 'bold' }}>Helping Hands Care Center</span>
-              <br />
-              Company Statement
+            <p style={{ margin: 0, lineHeight: '1', marginTop: '2px' }}> {/* Adjusted margin */}
+              <span style={{ fontWeight: 'bold', position: 'relative', top: '1px' }}>Helping Hands Care Center</span> | Company Statement {/* Reorganized wording */}
             </p>
           </div>
           <div>
-            <nav>
-              <h6 style={{ fontSize: '12px', margin: '5px 0' }}>Legal</h6> {/* Adjusted font size */}
-              <a className="link link-hover block" style={{ fontSize: '8px', margin: '2px 0' }}>Terms of use</a> {/* Adjusted font size and margin */}
-              <a className="link link-hover block" style={{ fontSize: '8px', margin: '2px 0' }}>Privacy policy</a>
-              <a className="link link-hover block" style={{ fontSize: '8px', margin: '2px 0' }}>Cookie policy</a>
+            <nav style={{ marginTop: '10px' }}> {/* Moved Legal section down by one line */}
+              <h6 style={{ fontSize: '10px', margin: '2px 0', lineHeight: '1', marginTop: '1px' }}>Legal</h6> {/* Adjusted font size and margin */}
+              <a className="link link-hover block" style={{ fontSize: '8px', margin: '1px 0', lineHeight: '1', marginTop: '1px' }}>Terms | Privacy | Cookies</a> {/* Reorganized wording */}
             </nav>
-            <p style={{ fontSize: '6px', margin: '5px 0' }}> {/* Adjusted font size */}
-              Copyright © 2024 - All right reserved by ACME Industries Ltd
+            <p style={{ fontSize: '5px', margin: '2px 0', lineHeight: '1', marginTop: '1px' }}> {/* Adjusted font size and margin */}
+              © 2024 ACME Industries Ltd | All rights reserved
             </p>
           </div>
           <div>
-            <p style={{ fontSize: '12px', margin: '50' }}>Call Support Help Line at (012)345-6789</p> {/* Adjusted font size */}
+            <p style={{ fontSize: '9px', margin: '2px 0', lineHeight: '1', marginTop: '1px' }}>Call Support: (012)345-6789</p> {/* Adjusted font size and margin */}
           </div>
         </div>
       </footer>
