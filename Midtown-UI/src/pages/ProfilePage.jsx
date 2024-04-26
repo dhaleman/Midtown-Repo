@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Taskbar from "../components/Taskbar";
@@ -18,6 +18,18 @@ function ProfilePage() {
     //     console.log("error");
     //     }
     // };
+    const [users, setUsers] = useState([]);
+    const fetchOrders = async () => {
+      const rsp = await axios.get(`${config.baseApiUrl}/user/3`);
+      const usersreceived = await rsp.data;
+      setUsers(usersreceived);
+    };
+  
+    // fetches the orders on the component render and looks for changes to
+    // the orders to call another refresh
+    useEffect(() => {
+      fetchOrders();
+    }, [users]);
 
   return (
     <div>
@@ -29,7 +41,7 @@ function ProfilePage() {
             <label className="input input-bordered flex items-center gap-2">
               First Name
               <input
-                value=""
+                value={users.first_name}
                 type="text"
                 className="grow"
                 placeholder="Team"
