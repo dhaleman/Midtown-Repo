@@ -24,7 +24,7 @@ function PageFooter(props) {
         }}>
           <div>
             <img
-              src={props.imagesrc}
+              src={logo}
               alt="Helping Hands Care Centers Logo"
               style={{
                 height: '15px',

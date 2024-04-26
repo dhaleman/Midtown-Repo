@@ -12,6 +12,7 @@ import PetPage from './pages/PetPage'
 import ElderlyPage from './pages/ElderlyPage'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import FeedbackPage from './pages/FeedbackPage'
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return (
